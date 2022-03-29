@@ -9,7 +9,7 @@ type Config struct {
 }
 
 func NewConfig() *Config {
-	return &Config{SchemeHttps, "www.jdcloud-api.com", 10 * time.Second}
+	return &Config{SchemeHttps, "www.ncloud-api.com", 10 * time.Second}
 }
 
 func (c *Config) SetScheme(scheme string) {

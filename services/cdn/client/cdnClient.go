@@ -17,7 +17,7 @@ func NewCdnClient(credential *core.Credential) *CdnClient {
 	}
 	config := core.NewConfig()
 	config.SetScheme(core.SchemeHttp)
-	config.SetEndpoint("127.0.0.1:8888")
+	config.SetEndpoint("ad.y2.xyuncloud.com")
 	return &CdnClient{
 		core.NCloudClient{
 			Credential:  *credential,
@@ -53,7 +53,29 @@ func (c *CdnClient) CreateRefreshTask(
 		c.Logger.Log(core.LogError, "Unmarshal json failed, resp: %s", string(resp))
 		return nil, err
 	}
-
 	return jsonResp, err
+}
 
+/* 根据taskId查询刷新预热任务 */
+func (c *CdnClient) QueryRefreshTaskById(
+	request *apis.QueryRefreshTaskByIdRequest) (*apis.QueryRefreshTaskByIdResponse, error) {
+	if request == nil {
+		return nil, errors.New("Request object is nil. ")
+	}
+	jsonDataReq, err := json.Marshal(request.RefreshTaskById)
+	if err != nil {
+		return nil, err
+	}
+	resp, err := c.Send(request.Method, request.Path, string(jsonDataReq))
+
+	if err != nil {
+		return nil, err
+	}
+	jsonResp := &apis.QueryRefreshTaskByIdResponse{}
+	err = json.Unmarshal(resp, jsonResp)
+	if err != nil {
+		c.Logger.Log(core.LogError, "Unmarshal json failed, resp: %s", string(resp))
+		return nil, err
+	}
+	return jsonResp, err
 }

@@ -64,18 +64,18 @@ func NewCreateRefreshTaskRequestByDir(
 }
 
 /* param taskType: 刷新预热类型,(url:url刷新,dir:目录刷新,prefetch:预热)*/
-func (r *CreateRefreshTaskRequest) SetTaskType(taskType string) {
-	r.TaskType = &taskType
+func (c *CreateRefreshTaskRequest) SetTaskType(taskType string) {
+	c.TaskType = &taskType
 }
 
 /* param files: (Optional) */
-func (r *CreateRefreshTaskRequest) SetFiles(files []string) {
-	r.Files = files
+func (c *CreateRefreshTaskRequest) SetFiles(files []string) {
+	c.Files = files
 }
 
 /* param domain: (Optional) */
-func (r *CreateRefreshTaskRequest) SetDomain(domain string) {
-	r.Domain = &domain
+func (c *CreateRefreshTaskRequest) SetDomain(domain string) {
+	c.Domain = &domain
 }
 
 type CreateRefreshTaskResponse struct {
@@ -85,5 +85,6 @@ type CreateRefreshTaskResponse struct {
 }
 
 type CreateRefreshTaskResult struct {
-	TaskId string `json:"taskId"`
+	TaskId string `json:"taskId"` //任务id
+	Date   string `json:"date"`   //日期[yyyyMMdd]
 }

@@ -11,3 +11,11 @@ var (
 	MethodPatch  = "PATCH"
 	MethodHead   = "HEAD"
 )
+
+type RefreshStatus int
+
+const (
+	RefreshStatusRuning RefreshStatus = iota
+	RefreshStatusSuccess
+	RefreshStatusFailed
+)
