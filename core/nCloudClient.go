@@ -2,7 +2,6 @@ package core
 
 import (
 	"encoding/base64"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -27,7 +26,6 @@ func (c NCloudClient) Send(method, path, data string) ([]byte, error) {
 }
 
 func (c NCloudClient) doSend(method, url, data, signed, t string, timeout time.Duration) ([]byte, error) {
-	fmt.Println("data:", data)
 	client := &http.Client{Timeout: timeout}
 	req, err := http.NewRequest(method, url, strings.NewReader(data))
 	if err != nil {

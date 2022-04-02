@@ -9,9 +9,9 @@ type CreateRefreshTaskRequest struct {
 
 type RefreshTaskRequest struct {
 	/* 刷新预热类型,(url:url刷新,dir:目录刷新,prefetch:预热)*/
-	TaskType *string `json:"taskType"`
+	TaskType string `json:"taskType"`
 	/* 域名 目前只支持单域名*/
-	Domain *string `json:"domain"`
+	Domain string `json:"domain"`
 	/*  文件名称 */
 	Files []string `json:"files"`
 }
@@ -26,9 +26,9 @@ func NewCreateRefreshTaskRequest() *CreateRefreshTaskRequest {
 }
 
 func NewCreateRefreshTaskRequestWithAllParams(
-	taskType *string,
+	taskType string,
 	files []string,
-	domain *string) *CreateRefreshTaskRequest {
+	domain string) *CreateRefreshTaskRequest {
 	return &CreateRefreshTaskRequest{
 		NCloudRequest: core.NCloudRequest{
 			Path:   "refresh",
@@ -44,28 +44,28 @@ func NewCreateRefreshTaskRequestWithAllParams(
 
 func NewCreateRefreshTaskRequestByRefresh(
 	files []string,
-	domain *string) *CreateRefreshTaskRequest {
+	domain string) *CreateRefreshTaskRequest {
 	taskType := "url"
-	return NewCreateRefreshTaskRequestWithAllParams(&taskType, files, domain)
+	return NewCreateRefreshTaskRequestWithAllParams(taskType, files, domain)
 }
 
 func NewCreateRefreshTaskRequestByPrefetch(
 	files []string,
-	domain *string) *CreateRefreshTaskRequest {
+	domain string) *CreateRefreshTaskRequest {
 	taskType := "prefetch"
-	return NewCreateRefreshTaskRequestWithAllParams(&taskType, files, domain)
+	return NewCreateRefreshTaskRequestWithAllParams(taskType, files, domain)
 }
 
 func NewCreateRefreshTaskRequestByDir(
 	files []string,
-	domain *string) *CreateRefreshTaskRequest {
+	domain string) *CreateRefreshTaskRequest {
 	taskType := "dir"
-	return NewCreateRefreshTaskRequestWithAllParams(&taskType, files, domain)
+	return NewCreateRefreshTaskRequestWithAllParams(taskType, files, domain)
 }
 
 /* param taskType: 刷新预热类型,(url:url刷新,dir:目录刷新,prefetch:预热)*/
 func (c *CreateRefreshTaskRequest) SetTaskType(taskType string) {
-	c.TaskType = &taskType
+	c.TaskType = taskType
 }
 
 /* param files: (Optional) */
@@ -75,7 +75,7 @@ func (c *CreateRefreshTaskRequest) SetFiles(files []string) {
 
 /* param domain: (Optional) */
 func (c *CreateRefreshTaskRequest) SetDomain(domain string) {
-	c.Domain = &domain
+	c.Domain = domain
 }
 
 type CreateRefreshTaskResponse struct {
