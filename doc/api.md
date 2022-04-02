@@ -1,14 +1,16 @@
 # ncloud_pcdn api
 ##1 历史记录
-|  版本   |  修改  |  作者   | 时间  |
-|  :----: | :----:|:----: | :----: |
-| 1.0.0  | 创建 |包月兴|2021/12/31|
+|  版本   | 修改  | 作者  |     时间     |
+|:-----:|:---:|:---:|:----------:|
+| 1.0.0 | 创建  | 包月兴 | 2021/12/31 |
+
 ##2 参数说明
 ###2.1 系统(header)参数
-|  序号   |  参数  |  选项  | 数据类型  |        说明        |
-|  :----: | :----:| :----: | :----: |:----------------:|
-| 1  |Content-Type |Y|string| application/json |
-| 2  |Authorization |Y|string|      鉴权字符串       |
+| 序号  |      参数       | 选项  |  数据类型  |        说明        |
+|:---:|:-------------:|:---:|:------:|:----------------:|
+|  1  | Content-Type  |  Y  | string | application/json |
+|  2  | Authorization |  Y  | string |      鉴权字符串       |
+
 ###2.2sign 鉴权说明
 ####2.2.1 变量
 ```
@@ -61,11 +63,11 @@ Authorization = {authorization}
 3 系统参数:Content-Type Authorization
 ```
 #####业务参数
-|  参数   |   数据类型   |  选项   |   说明   |
-|  :----: |:--------:| :----: |:------:|
-|  taskType  |  string  |  Y  | 刷新预热类型 |
+|    参数    |   数据类型   | 选项  |   说明   |
+|:--------:|:--------:|:---:|:------:|
+| taskType |  string  |  Y  | 刷新预热类型 |
 |  domain  |  string  |  Y  |   域名   |
-|  files | []string |  Y  |  文件列表  |
+|  files   | []string |  Y  |  文件列表  |
 ```
 备注：
 刷新预热类型,(url:url刷新,dir:目录刷新,prefetch:预热)
@@ -73,7 +75,7 @@ Authorization = {authorization}
 ```
 #####响应数据
 |    参数    |  数据类型  | 选项  |       说明        |
-|:--------:|:------:| :----: |:---------------:|
+|:--------:|:------:|:---:|:---------------:|
 |    ok    |  bool  |  Y  | true 成功 false失败 |
 |   msg    | string |  Y  |      信息输出       |
 |   data   | objetc |  Y  |       任务        |
@@ -98,13 +100,13 @@ Authorization = {authorization}
 3 系统参数:Content-Type Authorization
 ```
 #####业务参数
-|   参数   |   数据类型   |  选项   |   说明   |
-|:------:|:--------:| :----: |:------:|
-| taskId | string |  Y  |      任务id       |
-|  date  | string |  Y  |       日期        |
+|   参数   |  数据类型  | 选项  |  说明  |
+|:------:|:------:|:---:|:----:|
+| taskId | string |  Y  | 任务id |
+|  date  | string |  Y  |  日期  |
 #####响应数据
 |      参数       |   数据类型   | 选项  |       说明        |
-|:-------------:|:--------:| :----: |:---------------:|
+|:-------------:|:--------:|:---:|:---------------:|
 |      ok       |   bool   |  Y  | true 成功 false失败 |
 |      msg      |  string  |  Y  |      信息输出       |
 |     data      | []objetc |  Y  |       任务        |
@@ -134,17 +136,17 @@ Authorization = {authorization}
 3 系统参数:Content-Type Authorization
 ```
 #####业务参数
-|    参数     |  选项  |  数据类型  |     说明     |             备注             |
-|:---------:| :----: |:------:|:----------:|:--------------------------:|
-|  domain   |Y| string | 用户ping权限域名 ||
-| startTime |Y| string |    起始时间    | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-|  endTime  |Y| string |    结束时间    | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-| Interval  |Y| string |   日志时间间隔   | hour，day，fiveMin 目前只支持hour |
-| pageSize  |Y|  int   |  分页 每页大小   ||
-|  pageNumber  |Y|  int   |   分页 页数    |            大于1             |
+|     参数     | 选项  |  数据类型  |     说明     |             备注             |
+|:----------:|:---:|:------:|:----------:|:--------------------------:|
+|   domain   |  Y  | string | 用户ping权限域名 ||
+| startTime  |  Y  | string |    起始时间    | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|  endTime   |  Y  | string |    结束时间    | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|  Interval  |  Y  | string |   日志时间间隔   | hour，day，fiveMin 目前只支持hour |
+|  pageSize  |  Y  |  int   |  分页 每页大小   ||
+| pageNumber |  Y  |  int   |   分页 页数    |            大于1             |
 #####响应数据
 |      参数      |   数据类型   | 选项  |       说明        |  备注  |
-|:------------:|:--------:| :----: |:---------------:|:----:|
+|:------------:|:--------:|:---:|:---------------:|:----:|
 |      ok      |   bool   |  Y  | true 成功 false失败 ||
 |     msg      |  string  |  Y  |      信息输出       ||
 |     data     |  objetc  |  Y  |       --        ||
@@ -203,11 +205,11 @@ Authorization = {authorization}
 4 无业务参数
 ```
 #####响应数据
-|      参数      |   数据类型   | 选项  |       说明        |  备注  |
-|:------------:|:--------:| :----: |:---------------:|:----:|
-|      ok      |   bool   |  Y  | true 成功 false失败 ||
-|     msg      |  string  |  Y  |      信息输出       ||
-|     data     | []string |  Y  |  用户ping权限下所有域名  ||
+|  参数  |   数据类型   | 选项  |       说明        | 备注  |
+|:----:|:--------:|:---:|:---------------:|:---:|
+|  ok  |   bool   |  Y  | true 成功 false失败 ||
+| msg  |  string  |  Y  |      信息输出       ||
+| data | []string |  Y  |  用户ping权限下所有域名  ||
 #####响应数据返回正确实例
 ```
 {
@@ -234,11 +236,11 @@ Authorization = {authorization}
 4 无业务参数
 ```
 #####响应数据
-|      参数      |   数据类型   | 选项  |       说明        |  备注  |
-|:------------:|:--------:| :----: |:---------------:|:----:|
-|      ok      |   bool   |  Y  | true 成功 false失败 ||
-|     msg      |  string  |  Y  |      信息输出       ||
-|     data     | []string |  Y  |      运营商列表      ||
+|  参数  |   数据类型   | 选项  |       说明        | 备注  |
+|:----:|:--------:|:---:|:---------------:|:---:|
+|  ok  |   bool   |  Y  | true 成功 false失败 ||
+| msg  |  string  |  Y  |      信息输出       ||
+| data | []string |  Y  |      运营商列表      ||
 #####响应数据返回正确实例
 ```
 {
@@ -259,11 +261,11 @@ Authorization = {authorization}
 4 无业务参数
 ```
 #####响应数据
-|      参数      |   数据类型   | 选项  |       说明        |  备注  |
-|:------------:|:--------:| :----: |:---------------:|:----:|
-|      ok      |   bool   |  Y  | true 成功 false失败 ||
-|     msg      |  string  |  Y  |      信息输出       ||
-|     data     | []string |  Y  |      地区列表       ||
+|  参数  |   数据类型   | 选项  |       说明        | 备注  |
+|:----:|:--------:|:---:|:---------------:|:---:|
+|  ok  |   bool   |  Y  | true 成功 false失败 ||
+| msg  |  string  |  Y  |      信息输出       ||
+| data | []string |  Y  |      地区列表       ||
 #####响应数据返回正确实例
 ```
 {
@@ -284,11 +286,11 @@ Authorization = {authorization}
 3 系统参数:Content-Type Authorization
 ```
 ####业务参数
-|    参数     |  选项  |   数据类型   |      说明      |             备注             |
-|:---------:| :----: |:--------:|:------------:|:--------------------------:|
-|  domains  |Y| []string | 用户ping权限域名集合 |空数组 ping权限所有域名|
-| startTime |Y|  string  |     起始时间     | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-|  endTime  |Y|  string  |     结束时间     | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|    参数     | 选项  |   数据类型   |      说明      |             备注             |
+|:---------:|:---:|:--------:|:------------:|:--------------------------:|
+|  domains  |  Y  | []string | 用户ping权限域名集合 |       空数组 ping权限所有域名       |
+| startTime |  Y  |  string  |     起始时间     | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|  endTime  |  Y  |  string  |     结束时间     | 北京时间 [yyyy-mm-dd HH:mm:ss] |
 ####发送业务参数范例
 ```
 {
@@ -304,15 +306,15 @@ Authorization = {authorization}
 |      ok       |   bool   |   Y    | true 成功 false失败 ||
 |      msg      |  string  |   Y    |      信息输出       ||
 |     data      | []object |   Y    |                 ||
-|  --startTime  |Y| string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-|   --endTime   |Y| string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-| --statistics  |Y| object |                 |                            |
-| ----startTime |Y| string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-|  ----endTime  |Y| string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-|  ----domain   |Y| string |       域名        ||
-|    ----isp    |Y| string |       运营商       ||
-|  ----region   |Y| string |       地区        ||
-| ----bandwidth |Y|  int   |       带宽        |            单位 B            |
+|  --startTime  |    Y     | string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|   --endTime   |    Y     | string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+| --statistics  |    Y     | object |                 |                            |
+| ----startTime |    Y     | string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|  ----endTime  |    Y     | string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|  ----domain   |    Y     | string |       域名        ||
+|    ----isp    |    Y     | string |       运营商       ||
+|  ----region   |    Y     | string |       地区        ||
+| ----bandwidth |    Y     |  int   |       带宽        |            单位 B            |
 
 #####响应数据返回正确实例
 ```
@@ -380,15 +382,15 @@ Authorization = {authorization}
 |      ok       |   bool   |   Y    | true 成功 false失败 ||
 |      msg      |  string  |   Y    |      信息输出       ||
 |     data      | []object |   Y    |                 ||
-|  --startTime  |Y| string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-|   --endTime   |Y| string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-| --statistics  |Y| object |                 |                            |
-| ----startTime |Y| string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-|  ----endTime  |Y| string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-|  ----domain   |Y| string |       域名        ||
-|    ----isp    |Y| string |       运营商       ||
-|  ----region   |Y| string |       地区        ||
-| ----bandwidth |Y|  int   |       带宽        |            单位 B            |
+|  --startTime  |    Y     | string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|   --endTime   |    Y     | string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+| --statistics  |    Y     | object |                 |                            |
+| ----startTime |    Y     | string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|  ----endTime  |    Y     | string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|  ----domain   |    Y     | string |       域名        ||
+|    ----isp    |    Y     | string |       运营商       ||
+|  ----region   |    Y     | string |       地区        ||
+| ----bandwidth |    Y     |  int   |       带宽        |            单位 B            |
 
 #####响应数据返回正确实例
 ```
@@ -490,15 +492,15 @@ Authorization = {authorization}
 |      ok       |   bool   |   Y    | true 成功 false失败 ||
 |      msg      |  string  |   Y    |      信息输出       ||
 |     data      | []object |   Y    |                 ||
-|  --startTime  |Y| string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-|   --endTime   |Y| string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-| --statistics  |Y| object |                 |                            |
-| ----startTime |Y| string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-|  ----endTime  |Y| string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
-|  ----domain   |Y| string |       域名        ||
-|    ----isp    |Y| string |       运营商       ||
-|  ----region   |Y| string |       地区        ||
-| ----bandwidth |Y|  int   |       带宽        |            单位 B            |
+|  --startTime  |    Y     | string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|   --endTime   |    Y     | string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+| --statistics  |    Y     | object |                 |                            |
+| ----startTime |    Y     | string |      起始时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|  ----endTime  |    Y     | string |      结束时间       | 北京时间 [yyyy-mm-dd HH:mm:ss] |
+|  ----domain   |    Y     | string |       域名        ||
+|    ----isp    |    Y     | string |       运营商       ||
+|  ----region   |    Y     | string |       地区        ||
+| ----bandwidth |    Y     |  int   |       带宽        |            单位 B            |
 
 #####响应数据返回正确实例
 ```
