@@ -24,15 +24,15 @@ authorization string类型 鉴权字符串
 #### 2.2.2 签名加密方法
 ```
 加密算法: HmacSHA1
-加密字符串: {ak}{path}{t}
+加密字符串: {ak}{path}/{t}
 eg:
 ak = "abc123"
 path = "/refresh"
-t = 1568953410
+t = 1568953410s
 
-加密前字符串: "abc123/refresh1234561568953410"
+加密前字符串: "abc123/refresh/1568953410"
 加密秘钥: sk
-加密后字符串: SIGNED = b41ec844042b68cd0093d9b54018350231fa3087
+加密后字符串: SIGNED = 1a1573b2d0d695ec06d22cef1a0035cd2e549b90
 
 ```
 
@@ -59,7 +59,7 @@ Authorization = {authorization}
 ### 3.1 创建刷新预热任务
 ```
 1.path:/v1/cdn/refresh
-2 协议:POST 
+2 协议:POST
 3 系统参数:Content-Type Authorization
 ```
 ##### 业务参数
@@ -85,18 +85,18 @@ Authorization = {authorization}
 ##### 响应数据返回实例
 ```
 {
-    "ok": true,
-    "msg": "请求成功",
-    "data": {
-            "taskId": "9328ea7c-66a8-41ff-b636-8398f798557e",
-            "date": "20220330",
-    }
+"ok": true,
+"msg": "请求成功",
+"data": {
+"taskId": "9328ea7c-66a8-41ff-b636-8398f798557e",
+"date": "20220330",
+}
 }
 ```
 ### 3.2 根据taskId查询刷新预热任务
 ```
 1.path:/v1/cdn/refreshTask
-2 协议:POST 
+2 协议:POST
 3 系统参数:Content-Type Authorization
 ```
 ##### 业务参数
@@ -132,7 +132,7 @@ Authorization = {authorization}
 ### 3.3 查询cdn日志
 ```
 1.path:/v1/cdn/downLog
-2 协议:POST 
+2 协议:POST
 3 系统参数:Content-Type Authorization
 ```
 ##### 业务参数
@@ -187,20 +187,20 @@ Authorization = {authorization}
 ##### 响应数据返回错误实例
 ```
 {
-    "data": {
-        "total": 0,
-        "pageSize": 0,
-        "pageNumber": 0,
-        "urls": []
-    },
-    "msg": "域名未配置源,请联系工作人员",
-    "ok": false
+"data": {
+"total": 0,
+"pageSize": 0,
+"pageNumber": 0,
+"urls": []
+},
+"msg": "域名未配置源,请联系工作人员",
+"ok": false
 }
 ```
-### 3.4 查询用户ping权限下所有域名
+### 3.4 查询用户所有域名
 ```
 1.path:/v1/cdn/domain
-2 协议:POST 
+2 协议:POST
 3 系统参数:Content-Type Authorization
 4 无业务参数
 ```
@@ -209,29 +209,29 @@ Authorization = {authorization}
 |:----:|:--------:|:---:|:---------------:|:---:|
 |  ok  |   bool   |  Y  | true 成功 false失败 ||
 | msg  |  string  |  Y  |      信息输出       ||
-| data | []string |  Y  |  用户ping权限下所有域名  ||
+| data | []string |  Y  |  用户所有域名  ||
 ##### 响应数据返回正确实例
 ```
 {
-    "data": [
-        "download-v1.xyuncloud.com"
-    ],
-    "msg": "请求成功",
-    "ok": true
+"data": [
+"download-v1.xyuncloud.com"
+],
+"msg": "请求成功",
+"ok": true
 }
 ```
 ##### 响应数据返回错误实例
 ```
 {
-    "data": [],
-    "msg": "域名未配置,请联系工作人员",
-    "ok": false
+"data": [],
+"msg": "域名未配置,请联系工作人员",
+"ok": false
 }
 ```
 ### 3.5 查询所有运营商
 ```
 1.path:/v1/cdn/isp
-2 协议:POST 
+2 协议:POST
 3 系统参数:Content-Type Authorization
 4 无业务参数
 ```
@@ -244,19 +244,19 @@ Authorization = {authorization}
 ##### 响应数据返回正确实例
 ```
 {
-    "data": [
-        "移动",
-        "联通",
-        "电信"
-    ],
-    "msg": "请求成功",
-    "ok": true
+"data": [
+"移动",
+"联通",
+"电信"
+],
+"msg": "请求成功",
+"ok": true
 }
 ```
 ### 3.6 查询所有地区
 ```
 1.path:/v1/cdn/region
-2 协议:POST 
+2 协议:POST
 3 系统参数:Content-Type Authorization
 4 无业务参数
 ```
@@ -269,20 +269,20 @@ Authorization = {authorization}
 ##### 响应数据返回正确实例
 ```
 {
-    "data": [
-        "安徽",
-        "北京",
-        "重庆"
-    ],
-    "msg": "请求成功",
-    "ok": true
+"data": [
+"安徽",
+"北京",
+"重庆"
+],
+"msg": "请求成功",
+"ok": true
 }
 ```
 
 ### 3.7 查询域名带宽统计
 ```
 1.path:/v1/cdn/statisticsData/domain
-2 协议:POST 
+2 协议:POST
 3 系统参数:Content-Type Authorization
 ```
 #### 业务参数
@@ -294,9 +294,9 @@ Authorization = {authorization}
 #### 发送业务参数范例
 ```
 {
-    "domains":[],
-    "startTime":"2022-04-01 10:20:00",
-    "endTime":"2022-04-01 10:35:00"
+"domains":[],
+"startTime":"2022-04-01 10:20:00",
+"endTime":"2022-04-01 10:35:00"
 }
 ```
 
@@ -342,21 +342,21 @@ Authorization = {authorization}
 ##### 响应数据返回错误实例
 ```
 {
-    "data": [
-        {
-            "startTime": "",
-            "endTime": "",
-            "statistics": []
-        }
-    ],
-    "msg": "非法域名请求",
-    "ok": false
+"data": [
+{
+"startTime": "",
+"endTime": "",
+"statistics": []
+}
+],
+"msg": "非法域名请求",
+"ok": false
 }
 ```
 ### 3.8 查询运营商带宽统计
 ```
 1.path:/v1/cdn/statisticsData/isp
-2 协议:POST 
+2 协议:POST
 3 系统参数:Content-Type Authorization
 ```
 #### 业务参数
@@ -369,10 +369,10 @@ Authorization = {authorization}
 #### 发送业务参数范例
 ```
 {
-    "domains":[],
-    "isp":[],
-    "startTime":"2022-04-01 10:20:00",
-    "endTime":"2022-04-01 10:35:00"
+"domains":[],
+"isp":[],
+"startTime":"2022-04-01 10:20:00",
+"endTime":"2022-04-01 10:35:00"
 }
 ```
 
@@ -448,21 +448,21 @@ Authorization = {authorization}
 ##### 响应数据返回错误实例
 ```
 {
-    "data": [
-        {
-            "startTime": "",
-            "endTime": "",
-            "statistics": []
-        }
-    ],
-    "msg": "非法域名请求",
-    "ok": false
+"data": [
+{
+"startTime": "",
+"endTime": "",
+"statistics": []
+}
+],
+"msg": "非法域名请求",
+"ok": false
 }
 ```
 ### 3.9 查询运营商带宽统计
 ```
 1.path:/v1/cdn/statisticsData/region
-2 协议:POST 
+2 协议:POST
 3 系统参数:Content-Type Authorization
 ```
 #### 业务参数
@@ -477,11 +477,11 @@ Authorization = {authorization}
 #### 发送业务参数范例
 ```
 {
-    "domains":[],
-    "isp":[],
-    "regions":[],
-    "startTime":"2022-04-01 10:20:00",
-    "endTime":"2022-04-01 10:35:00"
+"domains":[],
+"isp":[],
+"regions":[],
+"startTime":"2022-04-01 10:20:00",
+"endTime":"2022-04-01 10:35:00"
 }
 ```
 
@@ -505,7 +505,7 @@ Authorization = {authorization}
 ##### 响应数据返回正确实例
 ```
 {
-    "data": [
+"data": [
         {
             "startTime": "2022-04-01 10:20:000",
             "endTime": "2022-04-01 10:25:00",
@@ -558,14 +558,14 @@ Authorization = {authorization}
 ##### 响应数据返回错误实例
 ```
 {
-    "data": [
-        {
-            "startTime": "",
-            "endTime": "",
-            "statistics": []
-        }
-    ],
-    "msg": "非法域名请求",
-    "ok": false
+"data": [
+{
+"startTime": "",
+"endTime": "",
+"statistics": []
+}
+],
+"msg": "非法域名请求",
+"ok": false
 }
 ```
