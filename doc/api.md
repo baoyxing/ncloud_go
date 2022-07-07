@@ -40,7 +40,7 @@ t = 1568953410s
 #### 2.2.3 鉴权计算方法
 ```
 加密算法: base64
-加密字符串: ak={ak}&&sign={sign}&t={t}
+加密字符串: ak={ak}&sign={sign}&t={t}
 eg:
 ak = "abc123"
 sign= "b41ec844042b68cd0093d9b54018350231fa3087"
