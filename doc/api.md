@@ -1,4 +1,4 @@
-# ncloud_pcdn api
+# ncloud_cdn api
 ## 1 历史记录
 |  版本   | 修改  | 作者  |     时间     |
 |:-----:|:---:|:---:|:----------:|
@@ -117,15 +117,15 @@ Authorization = {authorization}
 ##### 响应数据返回实例
 ```
 {
-"ok": true,
-"msg": "请求成功",
-"data": [
-{
-"url": "http://download-v1.xyuncloud.com/site/15847292.mp4.f30.mp4",
-"status": 1,
-"create_time":1648609894
-},
-}
+    "ok": true,
+    "msg": "请求成功",
+    "data": [
+            {
+            "url": "http://download-v1.xyuncloud.com/site/15847292.mp4.f30.mp4",
+            "status": 1,
+            "create_time":1648609894
+            },
+    }
 }
 ```
 
@@ -161,27 +161,27 @@ Authorization = {authorization}
 ##### 响应数据返回正确实例
 ```
 {
-"data": {
-"total": 4225,
-"pageSize": 2,
-"pageNumber": 1,
-"urls": [
-{
-"url": "https://oss1.y6.xyuncloud.com/pcdn/download-v1.xyuncloud.com,20220401103001.zip",
-"fileName": "pcdn/download-v1.xyuncloud.com,20220401103001.zip",
-"size": 254,
-"domain": "download-v1.xyuncloud.com"
-},
-{
-"url": "https://oss1.y6.xyuncloud.com/pcdn/download-v1.xyuncloud.com,20220401093001.zip",
-"fileName": "pcdn/download-v1.xyuncloud.com,20220401093001.zip",
-"size": 254,
-"domain": "download-v1.xyuncloud.com"
-}
-]
-},
-"msg": "下载成功",
-"ok": true
+    "data": {
+        "total": 4225,
+        "pageSize": 2,
+        "pageNumber": 1,
+        "urls": [
+            {
+                "url": "https://oss1.y6.xyuncloud.com/pcdn/download-v1.xyuncloud.com,20220401103001.zip",
+                "fileName": "pcdn/download-v1.xyuncloud.com,20220401103001.zip",
+                "size": 254,
+                "domain": "download-v1.xyuncloud.com"
+            },
+            {
+                "url": "https://oss1.y6.xyuncloud.com/pcdn/download-v1.xyuncloud.com,20220401093001.zip",
+                "fileName": "pcdn/download-v1.xyuncloud.com,20220401093001.zip",
+                "size": 254,
+                "domain": "download-v1.xyuncloud.com"
+            }
+        ]
+    },
+    "msg": "下载成功",
+    "ok": true
 }
 ```
 ##### 响应数据返回错误实例
@@ -197,7 +197,7 @@ Authorization = {authorization}
 "ok": false
 }
 ```
-### 3.4 查询用户ping权限下所有域名
+### 3.4 查询用户所有域名
 ```
 1.path:/v1/cdn/domain
 2 协议:POST
@@ -209,7 +209,7 @@ Authorization = {authorization}
 |:----:|:--------:|:---:|:---------------:|:---:|
 |  ok  |   bool   |  Y  | true 成功 false失败 ||
 | msg  |  string  |  Y  |      信息输出       ||
-| data | []string |  Y  |  用户ping权限下所有域名  ||
+| data | []string |  Y  |  用户所有域名  ||
 ##### 响应数据返回正确实例
 ```
 {
@@ -319,24 +319,24 @@ Authorization = {authorization}
 ##### 响应数据返回正确实例
 ```
 {
-"data": [
-{
-"startTime": "2022-04-01 10:25:000",
-"endTime": "2022-04-01 10:30:00",
-"statistics": [
-{
-"startTime": "2022-04-01 10:25:000",
-"endTime": "2022-04-01 10:30:00",
-"domain": "download-v1.xyuncloud.com",
-"isp": "",
-"region": "",
-"bandwidth": 213331147
-}
-]
-}
-],
-"msg": "请求成功",
-"ok": true
+    "data": [
+        {
+            "startTime": "2022-04-01 10:25:000",
+            "endTime": "2022-04-01 10:30:00",
+            "statistics": [
+                {
+                    "startTime": "2022-04-01 10:25:000",
+                    "endTime": "2022-04-01 10:30:00",
+                    "domain": "download-v1.xyuncloud.com",
+                    "isp": "",
+                    "region": "",
+                    "bandwidth": 213331147
+                }
+            ]
+        }
+    ],
+    "msg": "请求成功",
+    "ok": true
 }
 ```
 ##### 响应数据返回错误实例
@@ -395,54 +395,54 @@ Authorization = {authorization}
 ##### 响应数据返回正确实例
 ```
 {
-"data": [
-{
-"startTime": "2022-04-01 10:20:000",
-"endTime": "2022-04-01 10:25:00",
-"statistics": [
-{
-"startTime": "2022-04-01 10:20:000",
-"endTime": "2022-04-01 10:25:00",
-"domain": "download-v1.xyuncloud.com",
-"isp": "联通",
-"region": "",
-"bandwidth": 31376999
-},
-{
-"startTime": "2022-04-01 10:20:000",
-"endTime": "2022-04-01 10:25:00",
-"domain": "download-v1.xyuncloud.com",
-"isp": "电信",
-"region": "",
-"bandwidth": 122029671
-}
-]
-},
-{
-"startTime": "2022-04-01 10:25:000",
-"endTime": "2022-04-01 10:30:00",
-"statistics": [
-{
-"startTime": "2022-04-01 10:25:000",
-"endTime": "2022-04-01 10:30:00",
-"domain": "download-v1.xyuncloud.com",
-"isp": "联通",
-"region": "",
-"bandwidth": 57617613
-},
-{
-"startTime": "2022-04-01 10:25:000",
-"endTime": "2022-04-01 10:30:00",
-"domain": "download-v1.xyuncloud.com",
-"isp": "电信",
-"region": "",
-"bandwidth": 155713534
-}
-]
-}
-],
-"msg": "请求成功",
-"ok": true
+    "data": [
+        {
+            "startTime": "2022-04-01 10:20:000",
+            "endTime": "2022-04-01 10:25:00",
+            "statistics": [
+                {
+                    "startTime": "2022-04-01 10:20:000",
+                    "endTime": "2022-04-01 10:25:00",
+                    "domain": "download-v1.xyuncloud.com",
+                    "isp": "联通",
+                    "region": "",
+                    "bandwidth": 31376999
+                },
+                {
+                    "startTime": "2022-04-01 10:20:000",
+                    "endTime": "2022-04-01 10:25:00",
+                    "domain": "download-v1.xyuncloud.com",
+                    "isp": "电信",
+                    "region": "",
+                    "bandwidth": 122029671
+                }
+            ]
+        },
+        {
+            "startTime": "2022-04-01 10:25:000",
+            "endTime": "2022-04-01 10:30:00",
+            "statistics": [
+                {
+                    "startTime": "2022-04-01 10:25:000",
+                    "endTime": "2022-04-01 10:30:00",
+                    "domain": "download-v1.xyuncloud.com",
+                    "isp": "联通",
+                    "region": "",
+                    "bandwidth": 57617613
+                },
+                {
+                    "startTime": "2022-04-01 10:25:000",
+                    "endTime": "2022-04-01 10:30:00",
+                    "domain": "download-v1.xyuncloud.com",
+                    "isp": "电信",
+                    "region": "",
+                    "bandwidth": 155713534
+                }
+            ]
+        }
+    ],
+    "msg": "请求成功",
+    "ok": true
 }
 ```
 ##### 响应数据返回错误实例
@@ -506,53 +506,53 @@ Authorization = {authorization}
 ```
 {
 "data": [
-{
-"startTime": "2022-04-01 10:20:000",
-"endTime": "2022-04-01 10:25:00",
-"statistics": [
-{
-"startTime": "2022-04-01 10:20:000",
-"endTime": "2022-04-01 10:25:00",
-"domain": "download-v1.xyuncloud.com",
-"isp": "联通",
-"region": "广东",
-"bandwidth": 31376999
-},
-{
-"startTime": "2022-04-01 10:20:000",
-"endTime": "2022-04-01 10:25:00",
-"domain": "download-v1.xyuncloud.com",
-"isp": "电信",
-"region": "广东",
-"bandwidth": 122029671
-}
-]
-},
-{
-"startTime": "2022-04-01 10:25:000",
-"endTime": "2022-04-01 10:30:00",
-"statistics": [
-{
-"startTime": "2022-04-01 10:25:000",
-"endTime": "2022-04-01 10:30:00",
-"domain": "download-v1.xyuncloud.com",
-"isp": "联通",
-"region": "广东",
-"bandwidth": 57617613
-},
-{
-"startTime": "2022-04-01 10:25:000",
-"endTime": "2022-04-01 10:30:00",
-"domain": "download-v1.xyuncloud.com",
-"isp": "电信",
-"region": "广东",
-"bandwidth": 155713534
-}
-]
-}
-],
-"msg": "请求成功",
-"ok": true
+        {
+            "startTime": "2022-04-01 10:20:000",
+            "endTime": "2022-04-01 10:25:00",
+            "statistics": [
+                {
+                    "startTime": "2022-04-01 10:20:000",
+                    "endTime": "2022-04-01 10:25:00",
+                    "domain": "download-v1.xyuncloud.com",
+                    "isp": "联通",
+                    "region": "广东",
+                    "bandwidth": 31376999
+                },
+                {
+                    "startTime": "2022-04-01 10:20:000",
+                    "endTime": "2022-04-01 10:25:00",
+                    "domain": "download-v1.xyuncloud.com",
+                    "isp": "电信",
+                    "region": "广东",
+                    "bandwidth": 122029671
+                }
+            ]
+        },
+        {
+            "startTime": "2022-04-01 10:25:000",
+            "endTime": "2022-04-01 10:30:00",
+            "statistics": [
+                {
+                    "startTime": "2022-04-01 10:25:000",
+                    "endTime": "2022-04-01 10:30:00",
+                    "domain": "download-v1.xyuncloud.com",
+                    "isp": "联通",
+                    "region": "广东",
+                    "bandwidth": 57617613
+                },
+                {
+                    "startTime": "2022-04-01 10:25:000",
+                    "endTime": "2022-04-01 10:30:00",
+                    "domain": "download-v1.xyuncloud.com",
+                    "isp": "电信",
+                    "region": "广东",
+                    "bandwidth": 155713534
+                }
+            ]
+        }
+    ],
+    "msg": "请求成功",
+    "ok": true
 }
 ```
 ##### 响应数据返回错误实例
