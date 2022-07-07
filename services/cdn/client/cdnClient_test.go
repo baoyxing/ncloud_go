@@ -8,8 +8,8 @@ import (
 )
 
 const (
-	accessKey = "OF31SmcMfwOPcuVf"
-	secretKey = "2b79dwyBxW8DRqarSipo9SqvaudM8Stn"
+	accessKey = "######################3"
+	secretKey = "######################3"
 )
 
 func TestCdnClient_CreateRefreshTask(t *testing.T) {
@@ -17,8 +17,9 @@ func TestCdnClient_CreateRefreshTask(t *testing.T) {
 	credentials := core.NewCredentials(accessKey, secretKey)
 	cdnClient := NewCdnClient(credentials)
 	cdnClient.DisableLogger()
-	domain := "download-v1.xyuncloud.com"
-	dataRequest := apis.NewCreateRefreshTaskRequestByRefresh([]string{"/site/15847292.mp4.f30.mp4"}, domain)
+	domain := "video.xueanquan.com"
+	dataRequest := apis.NewCreateRefreshTaskRequestByRefresh([]string{"https://video.xueanquan.com/special/video/2022/ztk_dyyqfk.mp4",
+		"http://video.xueanquan.com/special/video/2021gdaqk.mp4"}, domain)
 	dataResponse, err := cdnClient.CreateRefreshTask(dataRequest)
 	if err != nil {
 		fmt.Println("err:", err)
